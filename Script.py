@@ -220,11 +220,9 @@ Nᴀᴍᴇ - {}"""
 
 𝗠𝗲𝘀𝘀𝗮𝗴𝗲 <b>: {}</b>"""
 
-    CAPTION = """<b><i>{file_caption}</i>
+    CAPTION = """<b>{file_caption}
 
-<blockquote>
-Jᴏɪɴ Us ➠ @MovieTimesTV 
-</blockquote></b>""" 
+<blockquote>Jᴏɪɴ Us ➠ @MovieTimesTV</blockquote></b>""" 
 
     IMDB_TEMPLATE_TXT = """
 <b>Query: {qurey}
