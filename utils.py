@@ -35,6 +35,7 @@ class temp(object):
     BANNED_USERS = []
     BANNED_CHATS = []
     ME = None
+    BOT = None
     CURRENT=int(os.environ.get("SKIP", 2))
     CANCEL = False
     MELCOW = {}
@@ -476,6 +477,13 @@ def humanbytes(size):
         size /= power
         n += 1
     return str(round(size, 2)) + " " + Dic_powerN[n] + 'B'
+
+
+
+async def get_clone_shortlink(link, url, api):
+    shortzy = Shortzy(api_key=api, base_site=url)
+    link = await shortzy.convert(link)
+    return link
 
 async def get_shortlink(chat_id, link):
     settings = await get_settings(chat_id) #fetching settings for group
