@@ -23,7 +23,7 @@ BOT_TOKEN = environ.get('BOT_TOKEN', "")
 
 # Bot settings
 CACHE_TIME = int(environ.get('CACHE_TIME', 1800))
-PICS = (environ.get('PICS', 'https://graph.org/file/d643b6574c1ffcac4cffd.jpg https://graph.org/file/78fa060f516147718b4d1.jpg https://graph.org/file/012b6d30c8cac09ea3e06.jpg https://graph.org/file/f531e6e0927884bbcd698.jpg https://graph.org/file/67001dbf4f98b8b2b4eee.jpg https://graph.org/file/ca9474488631646ff9503.jpg https://graph.org/file/7255cc48b00b20293008c.jpg https://graph.org/file/1133ec9f62c1b3aad6865.jpg')).split() #SAMPLE PIC
+PICS = (environ.get('PICS', 'https://graph.org/file/3203beeac1bdb3a508d5c-78a1f24f34d409e261.jpg https://graph.org/file/2ba24e00680e44d856dcc-80ccf4a824812645a8.jpg')).split() #SAMPLE PIC
 NOR_IMG = environ.get("NOR_IMG", "https://graph.org/file/b69af2db776e4e85d21ec.jpg")
 MELCOW_VID = environ.get("MELCOW_VID", "https://t.me/How_To_Open_Linkl")
 SPELL_IMG = environ.get("SPELL_IMG", "https://te.legra.ph/file/15c1ad448dfe472a5cbb8.jpg")
@@ -106,7 +106,7 @@ VERIFY_SND_SHORTLINK_API = environ.get('VERIFY_SND_SHORTLINK_API', '')
 VERIFY_TUTORIAL = environ.get('VERIFY_TUTORIAL', 'https://t.me/How_To_Open_Linkl')
 
 # Shortlink Info
-SHORTLINK_MODE = bool(environ.get('SHORTLINK_MODE', True))
+SHORTLINK_MODE = bool(environ.get('SHORTLINK_MODE', False))
 SHORTLINK_URL = environ.get('SHORTLINK_URL', 'api.shareus.io')
 SHORTLINK_API = environ.get('SHORTLINK_API', 'iwPFT7ziOCXWt11Q9bjf1S7Ojnt1')
 
