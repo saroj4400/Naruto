@@ -254,7 +254,7 @@ IMDb Data:
 📀 RunTime: {runtime} Minutes
 📆 Release Info : {release_date}
 🎛 Countries : <code>{countries}</code>
-BOT BY : @Spider_Man_02
+BOT BY : @Patrick_Bateman_r
 
 ⏰Result Shown in: {remaining_seconds} <i>seconds</i> 🔥
 
