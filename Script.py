@@ -252,8 +252,7 @@ IMDb Data:
 📀 RunTime: {runtime} Minutes
 📆 Release Info : {release_date}
 🎛 Countries : <code>{countries}</code>
-BOT BY : @Patrick_Bateman_r
-
+✨ BOT BY : @Patrick_Bateman_r
 
 📖 {plot}
 
