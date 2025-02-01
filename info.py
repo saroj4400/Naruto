@@ -67,9 +67,9 @@ OWNER_USERNAME = environ.get('OWNER_USERNAME', 'Patrick_Bateman_r') # owner user
 
 
 # Clone Information : If Clone Mode Is True Then Bot Clone Other Bots.
-CLONE_MODE = bool(environ.get('CLONE_MODE', False)) # Set True or False
-CLONE_DATABASE_URI = environ.get('CLONE_DATABASE_URI', "") # Necessary If clone mode is true
-PUBLIC_FILE_CHANNEL = environ.get('PUBLIC_FILE_CHANNEL', '') # Public Channel Username Without @ and Bot Is Admin With Full Right.
+CLONE_MODE = bool(environ.get('CLONE_MODE', True)) # Set True or False
+CLONE_DATABASE_URI = environ.get('CLONE_DATABASE_URI', "mongodb+srv://rohtashkumarsharma1994:NxNSQqdRkE8gHVHB@cluster0.5gatz.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0i7hjvjb") # Necessary If clone mode is true
+PUBLIC_FILE_CHANNEL = environ.get('PUBLIC_FILE_CHANNEL', 'Patrick_Botz') # Public Channel Username Without @ and Bot Is Admin With Full Right.
 
 # Links
 GRP_LNK = environ.get('GRP_LNK', 'https://t.me/requestmoviesgroup0')
