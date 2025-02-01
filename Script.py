@@ -254,6 +254,9 @@ IMDb Data:
 🎛 Countries : <code>{countries}</code>
 BOT BY : @Patrick_Bateman_r
 
+
+📖 {plot}
+
 ⏰ Result Shown in: {remaining_seconds} <i>seconds</i> 🔥
 
 💖 Requested by : {message.from_user.mention}</b>"""
