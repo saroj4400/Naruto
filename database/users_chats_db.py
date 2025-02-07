@@ -1,4 +1,3 @@
-import re
 import motor.motor_asyncio
 from pymongo.errors import DuplicateKeyError
 from info import (
@@ -37,6 +36,7 @@ class Database:
         self.users = self.db["users"]
         self.groups = self.db["groups"]
         self.bots = self.db["clone_bots"]
+        self.referals = self.db["referals"]  # New collection for referal users
 
     async def add_user(self, user_id, name):
         user = {
@@ -61,14 +61,26 @@ class Database:
     async def total_users_count(self):
         return await self.users.count_documents({})
 
+    async def delete_all_referal_users(self, user_id):
+        await self.referals.delete_many({"ref_user_id": int(user_id)})
+
+    async def get_referal_users_count(self, user_id):
+        return await self.referals.count_documents({"ref_user_id": int(user_id)})
+
+    async def get_referal_all_users(self, user_id):
+        return await self.referals.find({"ref_user_id": int(user_id)}).to_list(length=None)
+
+    async def referal_add_user(self, user_id, ref_user_id):
+        try:
+            await self.referals.insert_one({"user_id": int(user_id), "ref_user_id": int(ref_user_id)})
+            return True
+        except DuplicateKeyError:
+            return False
+
     async def ban_user(self, user_id, reason="No Reason"):
         await self.users.update_one(
             {"id": int(user_id)}, {"$set": {"ban_status": {"is_banned": True, "ban_reason": reason}}}
         )
-
-    async def get_ban_status(self, user_id):
-        user = await self.users.find_one({"id": int(user_id)})
-        return user.get("ban_status", {"is_banned": False, "ban_reason": ""}) if user else {"is_banned": False, "ban_reason": ""}
 
     async def remove_ban(self, user_id):
         await self.users.update_one({"id": int(user_id)}, {"$set": {"ban_status": {"is_banned": False, "ban_reason": ""}}})
@@ -78,27 +90,6 @@ class Database:
 
     async def delete_user(self, user_id):
         await self.users.delete_many({"id": int(user_id)})
-
-    async def add_clone_bot(self, bot_id, user_id, bot_token):
-        bot_data = {
-            "bot_id": bot_id,
-            "bot_token": bot_token,
-            "user_id": user_id,
-            "url": None,
-            "api": None,
-            "tutorial": None,
-            "update_channel_link": None
-        }
-        await self.bots.insert_one(bot_data)
-
-    async def get_clone(self, user_id):
-        return await self.bots.find_one({"user_id": int(user_id)})
-
-    async def update_clone(self, user_id, data):
-        await self.bots.update_one({"user_id": int(user_id)}, {"$set": data}, upsert=True)
-
-    async def delete_clone(self, user_id):
-        await self.bots.delete_many({"user_id": int(user_id)})
 
     async def add_chat(self, chat_id, title):
         chat = {
