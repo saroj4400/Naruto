@@ -1,25 +1,16 @@
 import time
 import asyncio
-import random  # Random reactions ke liye import
 from pyrogram import Client, filters
 import platform
 import os
 import shutil
 
-CMD = ["/", "."]
-
-# ✅ Random Reactions
-REACTIONS = [
-    "❤", "🔥", "🥰", "👏", "😁", "🤔", "😱", "🎉", "🤩", "🤡",
-    "😍", "❤‍🔥", "🌚", "🤣", "⚡", "🏆", "🤨", "😐", "😈", "🤓",
-    "👻", "😇", "🤝", "🤗", "🫡", "🎅", "🎄", "🆒", "😘", "😎"
-]
+CMD = ["/", "."]  
 
 @Client.on_message(filters.command("alive", CMD))
 async def check_alive(_, message):
-    reaction = random.choice(REACTIONS)  # Random reaction select karega
-    sticker = await message.reply_sticker("CAACAgIAAxkBAAEhzNdl6wzR3SsCw4dVU78FNpk0yCvn0gACKRgAAhP_2UkVxgiD_rlLGR4E")
-    text = await message.reply_text(f"**{reaction}**\nYᴏᴜ ᴀʀᴇ ᴠᴇʀʏ ʟᴜᴄᴋʏ 🤞 I ᴀᴍ ᴀʟɪᴠᴇ ❤️\nPʀᴇss /start ᴛᴏ ᴜsᴇ ᴍᴇ!")
+    sticker = await message.reply_sticker("CAACAgIAAxkBAAEhzNdl6wzR3SsCw4dVU78FNpk0yCvn0gACKRgAAhP_2UkVxgiD_rlLGR4E") 
+    text = await message.reply_text("Yᴏᴜ ᴀʀᴇ ᴠᴇʀʏ ʟᴜᴄᴋʏ 🤞 I ᴀᴍ ᴀʟɪᴠᴇ ❤️\nPʀᴇss /start ᴛᴏ ᴜsᴇ ᴍᴇ!")
     await asyncio.sleep(60)
     await sticker.delete()
     await text.delete()
@@ -39,11 +30,13 @@ async def ping(_, message):
 start_time = time.time()
 
 def format_time(seconds):
+    """Convert seconds to H:M:S format."""
     minutes, sec = divmod(int(seconds), 60)
     hours, minutes = divmod(minutes, 60)
     return f"{hours}h {minutes}m {sec}s"
 
 def get_size(size_kb):
+    """Convert KB to a human-readable format."""
     size_bytes = int(size_kb) * 1024
     for unit in ['B', 'KB', 'MB', 'GB', 'TB']:
         if size_bytes < 1024:
@@ -62,8 +55,8 @@ def get_system_info():
     try:
         with open('/proc/meminfo') as f:
             meminfo = f.readlines()
-        total_ram = get_size(meminfo[0].split()[1])
-        available_ram = get_size(meminfo[2].split()[1])
+        total_ram = get_size(meminfo[0].split()[1])  
+        available_ram = get_size(meminfo[2].split()[1])  
         used_ram = get_size(int(meminfo[0].split()[1]) - int(meminfo[2].split()[1]))
     except Exception:
         total_ram, used_ram = "Unavailable", "Unavailable"
@@ -86,7 +79,7 @@ def get_system_info():
 
 async def calculate_latency():
     start = time.time()
-    await asyncio.sleep(0)
+    await asyncio.sleep(0)  
     end = time.time()
     latency = (end - start) * 1000
     return f"{latency:.3f} ms"
@@ -94,9 +87,11 @@ async def calculate_latency():
 @Client.on_message(filters.command("system"))
 async def send_system_info(client, message):
     system_info = get_system_info()
-    latency = await calculate_latency()
+    latency = await calculate_latency() 
     full_info = f"{system_info}\n📶 **Latency:** {latency}"
     info = await message.reply_text(full_info)
     await asyncio.sleep(60)
     await info.delete()
     await message.delete()
+
+
