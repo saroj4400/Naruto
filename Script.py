@@ -237,7 +237,7 @@ Nᴀᴍᴇ - {}"""
 𝗠𝗲𝘀𝘀𝗮𝗴𝗲 <b>: {}</b>"""
 
     CAPTION = """<b><blockquote><i>{file_caption}</i></blockquote>
-<blockquote>Jᴏɪɴ Us ➠ @MovieTimesTV </blockquote></b>""" 
+<blockquote>Jᴏɪɴ Us ➠ @Patrick_Botz </blockquote></b>""" 
 
     IMDB_TEMPLATE_TXT = """
 <b>Query: {qurey}
