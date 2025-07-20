@@ -1,6 +1,6 @@
 # Don't Remove Credit @Tonystark_botz
 # Ask Doubt on telegram @Spider_Man_02
-FROM python:3.10.8-slim-buster
+FROM python:3.10.8-slim-bullseye
 
 RUN apt update && apt upgrade -y
 RUN apt install git -y
