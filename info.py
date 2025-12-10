@@ -19,7 +19,7 @@ def is_enabled(value, default):
 SESSION = environ.get('SESSION', 'N2Bot')
 API_ID = int(environ.get('API_ID', '28057612'))
 API_HASH = environ.get('API_HASH', '95295dca0ca9f41855ec0cabe9b440ed')
-BOT_TOKEN = environ.get('BOT_TOKEN', "")
+BOT_TOKEN = environ.get('BOT_TOKEN', "7775653836:AAEeyFQs8dWx7NF0HtpQ47bCyz63mjyFSC0")
 
 # Bot settings
 CACHE_TIME = int(environ.get('CACHE_TIME', 1800))
@@ -166,4 +166,5 @@ LOG_STR += f"Your current IMDB template is {IMDB_TEMPLATE}"
 
                           # Don't Remove Credit @Tonystark_botz
                           # Ask Doubt on telegram @Spider_Man_02
+
 
